@@ -65,6 +65,20 @@ FROM Invoice
 GROUP BY BillingCountry;
 
 --13
+SELECT Track.Name AS TrackName, Album.Title AS AlbumTitle, MediaType.Name AS MediaType
+FROM Track
+JOIN Album on Album.AlbumId = Track.AlbumId
+JOIN MediaType on MediaType.MediaTypeId = Track.MediaTypeId;
+
+--14
+SELECT COUNT(*) AS NumInvoicesJane
+FROM Invoice
+WHERE CustomerId IN
+        (SELECT CustomerId
+        FROM Customer
+        WHERE SupportRepId = 3);
+
+--BONUS
 
 
 
